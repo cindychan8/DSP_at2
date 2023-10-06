@@ -17,3 +17,10 @@ def get_url(url: str):
         Text from API call response
     """
 
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.status_code, response.text
+    else:
+        return response.status_code, "Error: " + response.text
+
+
